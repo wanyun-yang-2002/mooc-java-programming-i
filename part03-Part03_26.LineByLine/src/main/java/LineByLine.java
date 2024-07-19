@@ -15,7 +15,5 @@ public class LineByLine {
                 System.out.println(i);
             }
         }
-        
-
     }
 }
