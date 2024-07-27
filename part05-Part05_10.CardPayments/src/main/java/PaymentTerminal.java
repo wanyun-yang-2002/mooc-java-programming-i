@@ -42,12 +42,29 @@ public class PaymentTerminal {
         // an affordable meal costs 2.50 euros
         // if the payment card has enough money, the balance of the card is decreased by the price, and the method returns true
         // otherwise false is returned
+        if (card.takeMoney(2.50)) {
+            this.affordableMeals = this.affordableMeals + 1;
+            return true;
+        }
+        return false;
     }
 
     public boolean eatHeartily(PaymentCard card) {
         // a hearty meal costs 4.30 euros
         // if the payment card has enough money, the balance of the card is decreased by the price, and the method returns true
         // otherwise false is returned
+        if (card.takeMoney(4.30)) {
+            this.heartyMeals = this.heartyMeals + 1;
+            return true;
+        }
+        return false;
+    }
+    
+    public void addMoneyToCard(PaymentCard card, double sum) {
+        if (sum >= 0) {
+            card.addMoney(sum);
+            this.money = this.money + sum;
+        }
     }
 
     @Override
