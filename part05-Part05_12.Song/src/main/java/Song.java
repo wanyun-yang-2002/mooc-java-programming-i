@@ -10,7 +10,27 @@ public class Song {
         this.name = name;
         this.durationInSeconds = durationInSeconds;
     }
-
+    
+    public boolean equals(Object compared) {
+        if (this == compared) {
+            return true;
+        }
+        
+        if (!(compared instanceof Song)) {
+            return false;
+        }
+        
+        Song compareSong = (Song) compared;
+        
+        if (this.name.equals(compareSong.name) && 
+            this.artist.equals(compareSong.artist) &&
+            this.durationInSeconds == compareSong.durationInSeconds) {
+            return true;
+        } 
+        
+        return false;
+    }
+    
     @Override
     public String toString() {
         return this.artist + ": " + this.name + " (" + this.durationInSeconds + " s)";
