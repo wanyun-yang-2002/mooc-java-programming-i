@@ -24,8 +24,14 @@ public class SimpleCollection {
         if (this.elements.isEmpty()) {
             return "The collection "+ this.name + " is empty.";
         }
-        String ans1 = "The collection "+ this.name + " has "+ this.elements.size() + " element:";
+        String ans1 = "";
         String ans2 = "";
+        if (this.elements.size() == 1) {
+            ans1 = "The collection "+ this.name + " has "+ this.elements.size() + " element:";
+        } else if (this.elements.size() > 1) {
+            ans1 = "The collection "+ this.name + " has "+ this.elements.size() + " elements:";
+        }
+        
         for (String item: this.elements) {
             ans2 = ans2 + "\n" + item;
         }
