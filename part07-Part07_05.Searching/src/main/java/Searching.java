@@ -44,10 +44,33 @@ public class Searching {
     }
 
     public static int linearSearch(ArrayList<Book> books, int searchedId) {
+        for (int i = 0; i < books.size(); i++) {
+            if (books.get(i).getId() == searchedId) {
+                return i; // 返回找到的索引
+            }
+        }
         return -1;
     }
 
     public static int binarySearch(ArrayList<Book> books, long searchedId) {
+        int left = 0;
+        int right = books.size() - 1;
+
+        while (left <= right) {
+            int middle = (left + right) / 2;
+            int middleId = books.get(middle).getId();
+
+            if (middleId == searchedId) {
+                return middle; // 返回找到的索引
+            }
+
+            if (middleId < searchedId) {
+                left = middle + 1; // 搜索右半部分
+            } else {
+                right = middle - 1; // 搜索左半部分
+            }
+        }
+
         return -1;
     }
 }
